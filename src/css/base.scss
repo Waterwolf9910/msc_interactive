@@ -1,0 +1,21 @@
+@import "_bootstrap.scss";
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.center_items {
+    align-items: center;
+    justify-content: center;
+}

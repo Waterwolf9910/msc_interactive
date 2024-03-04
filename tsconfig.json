@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "moduleResolution": "Bundler",
+        "module": "ES2020",
+        "sourceMap": true,
+        "rootDir": "./src/js",
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react-jsx",
+        "resolvePackageJsonExports": true,
+        "resolvePackageJsonImports": true,
+        "removeComments": true,
+        "resolveJsonModule": true,
+    },
+    "include": ["./src/js"],
+    "exclude": [
+        "node_modules"
+    ]
+}
