@@ -3,6 +3,7 @@
         "strictNullChecks": true,
         "moduleResolution": "Bundler",
         "module": "ES2020",
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
         "sourceMap": true,
         "rootDir": "./src/js",
         "forceConsistentCasingInFileNames": true,
@@ -11,6 +12,7 @@
         "resolvePackageJsonImports": true,
         "removeComments": true,
         "resolveJsonModule": true,
+        "baseUrl": "./src"
     },
     "include": ["./src/js"],
     "exclude": [

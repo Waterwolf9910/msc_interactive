@@ -1,0 +1,42 @@
+@import "base.scss";
+@import "bootstrap/scss/forms";
+
+textarea {
+    margin-bottom: .25rem;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+input {
+    text-align: center;
+}
+
+th {
+    border: 2px solid rgb(160, 160, 160);
+    // padding: 8px 10px;
+    text-align: center;
+}
+
+td {
+    border: 1px solid rgb(160, 160, 160);
+    text-align: center;
+}
+
+table {
+    width: 600px;
+    height: 600px;
+    font-size: 12px;
+}
+
+.bottom_separator {
+    border-width: medium;
+    border-color: rgb(160, 160, 160);
+    border-bottom: solid;
+    margin-bottom: .5rem;
+}
+
+#keystream {
+    margin-bottom: -10px;
+}

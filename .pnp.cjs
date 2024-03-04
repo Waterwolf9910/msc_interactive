@@ -29,7 +29,6 @@ const RAW_RUNTIME_STATE =
           ["@pmmmwh/react-refresh-webpack-plugin", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:0.5.11"],\
           ["@popperjs/core", "npm:2.11.8"],\
           ["@types/bootstrap", "npm:5.2.10"],\
-          ["@types/node", "npm:20.11.24"],\
           ["@types/react", "npm:18.2.61"],\
           ["@types/react-dom", "npm:18.2.19"],\
           ["@types/webpack-env", "npm:1.18.4"],\
@@ -52,6 +51,7 @@ const RAW_RUNTIME_STATE =
           ["style-loader", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:3.3.4"],\
           ["terser-webpack-plugin", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.3.10"],\
           ["ts-loader", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:9.5.1"],\
+          ["tsconfig-paths-webpack-plugin", "npm:4.1.0"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"],\
           ["webpack", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.90.3"],\
           ["webpack-cli", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.1.4"],\
@@ -4019,6 +4019,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["minimist", [\
+      ["npm:1.2.8", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/minimist-npm-1.2.8-d7af7b1dce-10c0.zip/node_modules/minimist/",\
+        "packageDependencies": [\
+          ["minimist", "npm:1.2.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["minipass", [\
       ["npm:3.3.6", {\
         "packageLocation": "../AppData/Local/Yarn/Berry/cache/minipass-npm-3.3.6-b8d93a945b-10c0.zip/node_modules/minipass/",\
@@ -4147,7 +4156,6 @@ const RAW_RUNTIME_STATE =
           ["@pmmmwh/react-refresh-webpack-plugin", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:0.5.11"],\
           ["@popperjs/core", "npm:2.11.8"],\
           ["@types/bootstrap", "npm:5.2.10"],\
-          ["@types/node", "npm:20.11.24"],\
           ["@types/react", "npm:18.2.61"],\
           ["@types/react-dom", "npm:18.2.19"],\
           ["@types/webpack-env", "npm:1.18.4"],\
@@ -4170,6 +4178,7 @@ const RAW_RUNTIME_STATE =
           ["style-loader", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:3.3.4"],\
           ["terser-webpack-plugin", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.3.10"],\
           ["ts-loader", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:9.5.1"],\
+          ["tsconfig-paths-webpack-plugin", "npm:4.1.0"],\
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"],\
           ["webpack", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.90.3"],\
           ["webpack-cli", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.1.4"],\
@@ -5745,6 +5754,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["strip-bom", [\
+      ["npm:3.0.0", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/strip-bom-npm-3.0.0-71e8f81ff9-10c0.zip/node_modules/strip-bom/",\
+        "packageDependencies": [\
+          ["strip-bom", "npm:3.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["strip-final-newline", [\
       ["npm:2.0.0", {\
         "packageLocation": "../AppData/Local/Yarn/Berry/cache/strip-final-newline-npm-2.0.0-340c4f7c66-10c0.zip/node_modules/strip-final-newline/",\
@@ -5960,6 +5978,30 @@ const RAW_RUNTIME_STATE =
           "@types/webpack",\
           "typescript",\
           "webpack"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["tsconfig-paths", [\
+      ["npm:4.2.0", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/tsconfig-paths-npm-4.2.0-ac1edf8677-10c0.zip/node_modules/tsconfig-paths/",\
+        "packageDependencies": [\
+          ["tsconfig-paths", "npm:4.2.0"],\
+          ["json5", "npm:2.2.3"],\
+          ["minimist", "npm:1.2.8"],\
+          ["strip-bom", "npm:3.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["tsconfig-paths-webpack-plugin", [\
+      ["npm:4.1.0", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/tsconfig-paths-webpack-plugin-npm-4.1.0-5bffe3ebda-10c0.zip/node_modules/tsconfig-paths-webpack-plugin/",\
+        "packageDependencies": [\
+          ["tsconfig-paths-webpack-plugin", "npm:4.1.0"],\
+          ["chalk", "npm:4.1.2"],\
+          ["enhanced-resolve", "npm:5.15.1"],\
+          ["tsconfig-paths", "npm:4.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\

@@ -12,3 +12,4 @@
 !.yarn/cache
 # .pnp.*
 build/
+notes.txt

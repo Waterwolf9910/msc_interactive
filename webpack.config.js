@@ -1,16 +1,18 @@
-let rrt = require("react-refresh-typescript")
-let rrwp = require("@pmmmwh/react-refresh-webpack-plugin")
 let fs = require("fs")
 let path = require("path")
 let webpack = require("webpack")
-let html = require("html-webpack-plugin")
-let inline = require("html-inline-script-webpack-plugin")
-let terser = require("terser-webpack-plugin")
-let autoprefixer = require('autoprefixer')
+let html = require("html-webpack-plugin") // Used to inject our assets into the template page
+let inline = require("html-inline-script-webpack-plugin") // Inline the js to the html page
+let terser = require("terser-webpack-plugin") // Minimiser
+let autoprefixer = require('autoprefixer') // Needed for bootstrap
+let tspaths = require("tsconfig-paths-webpack-plugin").TsconfigPathsPlugin // For basepath
+let rrwp = require("@pmmmwh/react-refresh-webpack-plugin") // Hot reload for react
+let rrt = require("react-refresh-typescript") // Typescript support for the above
 
 let isDev = process.env.NODE_ENV == "development"
 let html_template = fs.readFileSync(path.resolve(__dirname, "src/template.html"), {encoding: 'utf-8'})
 
+// Get a list on entries from our page list
 let entries = (() => {
     // Get all of our pages
     let pages = fs.readdirSync(path.resolve(__dirname, 'src/js/pages'), {withFileTypes: true})
@@ -22,9 +24,6 @@ let entries = (() => {
             import: `./${path.relative(path.resolve(__dirname, "src"), page.path).replace(/\\/g, '/')}/${page.name}`,
             filename: `${name}.js`,
         }
-        // if (isDev) {
-        //     r[name].import.unshift("")
-        // }
     }
     return r
 })()
@@ -35,12 +34,17 @@ let html_list = Object.keys(entries).map(name => new html({
     chunks: [ name ],
     filename: `${name}.html`,
     inject: "body",
+    favicon: path.resolve(__dirname, 'src/assets/favicon.ico'),
     minify: isDev ? {
         minifyCSS: true,
         minifyJS: true,
         removeComments: true
     } : false,
-    templateContent: html_template.replace("&{_title_}", name == 'index' ? "Homepage" : `${name[0].toUpperCase()}${name.substring(1)}`)
+    templateContent: html_template
+        .replace("&{_title_}", 
+            (name == 'index' ? "Homepage" : `${name[0].toUpperCase()}${name.substring(1)}`)
+            .replace('_', ' ')
+        )
 }))
 
 /**
@@ -60,6 +64,12 @@ let config = {
     },
     resolve: {
         extensions: [".js", ".jsx", ".ts", ".tsx"],
+        plugins: [new tspaths]
+        // alias: {
+        //     assets: path.resolve(__dirname, "src/assets"),
+        //     css: path.resolve(__dirname, "src/css"),
+        //     js: path.resolve(__dirname, "src/js")
+        // }
     },
     devServer: {
         hot: true,
@@ -108,7 +118,7 @@ let config = {
                     {
                         loader: "style-loader",
                         options: {
-                            injectType: "singletonStyleTag",
+                            injectType: isDev ? 'styleTag' : "singletonStyleTag",
                         }
                     },
                     {
@@ -150,6 +160,11 @@ let config = {
                 test: /\.(png|jpeg|jpg|gif|webp|ico)$/i,
                 dependency: { not: [ 'url' ] },
                 type: 'asset/inline',
+            },
+            {
+                test: /\.txt$/,
+                dependency: { not: [ 'url' ] },
+                type: 'asset/source'
             }
         ]
     },
