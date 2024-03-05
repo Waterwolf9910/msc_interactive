@@ -4,20 +4,20 @@ import utils from "js/utils"
 import Description from "js/components/vigenere_desc"
 
 // Generate our table and lookup
-let alphabet = Object.fromEntries(Array(26).fill(0).map((_, i) => [String.fromCharCode(0x61 + i), i]))
-let table = Array(26).fill(0).map((_, i) => Array(26).fill(0).map((_, j) => String.fromCharCode(0x61 + (i + j) % 26)))
+const alphabet = Object.fromEntries(Array(26).fill(0).map((_, i) => [String.fromCharCode(0x61 + i), i]))
+const table = Array(26).fill(0).map((_, i) => Array(26).fill(0).map((_, j) => String.fromCharCode(0x61 + (i + j) % 26)))
 
 let page = () => {
-    let input = useRef<HTMLTextAreaElement>(null)
-    let output = useRef<HTMLTextAreaElement>(null)
-    let stream = useRef<HTMLInputElement>(null)
+    let input_ref = useRef<HTMLTextAreaElement>(null)
+    let output_ref = useRef<HTMLTextAreaElement>(null)
+    let stream_ref = useRef<HTMLInputElement>(null)
     let decrypt = false
     let key = 'secret'
     let keystream = 'secretsecre'
 
     // Handle input from user and encrypt message 
     let on_input = () => {
-        let plain_text = input.current!.value
+        let plain_text = input_ref.current!.value
         let encrypted = ''
         // Get our effective key from original key
         keystream = key.repeat(1 + plain_text.length).substring(0, plain_text.length).toLowerCase()
@@ -36,7 +36,6 @@ let page = () => {
              */
             let newchar = decrypt ? Object.keys(alphabet)[table[alphabet[keystream[i]]].indexOf(char.toLowerCase())] : table[alphabet[char.toLowerCase()]][alphabet[keystream[i]]]
 
-            // Get the index of the table from the index of the input char and the index of the key char
             if (char == char.toUpperCase()) {
                 encrypted += newchar.toUpperCase()
             } else {
@@ -46,26 +45,25 @@ let page = () => {
         }
 
         // Display are new message
-        output.current!.value = encrypted
-        stream.current!.value = keystream
+        output_ref.current!.value = encrypted
+        stream_ref.current!.value = keystream
     }
 
-    return <div className="col center_items form-switch">
+    return <div className="col center_items">
         <p><label htmlFor="key">Key + Keystream: </label></p>
-        {/** Filter and set key */}
         <input type="text" id='key' defaultValue='secret' onChange={e => { key = e.target.value = e.target.value.replace(/[^A-Za-z]/g, ''); on_input() }} />
-        <input type="text" id="keystream" title="keystream" readOnly value={keystream} ref={stream}/>
+        <input type="text" id="keystream" title="keystream" readOnly value={keystream} ref={stream_ref}/>
         <div className="bottom_separator">
             <p><label htmlFor="plaintext">Input: </label></p>
-            <textarea defaultValue='Hello World' wrap="hard" cols={50} rows={4} id='plaintext' onChange={on_input} ref={input} />
+            <textarea defaultValue='Hello World' wrap="hard" cols={50} rows={4} id='plaintext' onChange={on_input} ref={input_ref} />
         </div>
         <div>
             <p><label htmlFor="encrypted">Output: </label></p>
-            <textarea value='Zincs Ostch' wrap="hard" cols={50} rows={4} id="encrypted" readOnly ref={output}/>
+            <textarea value='Zincs Ostch' wrap="hard" cols={50} rows={4} id="encrypted" readOnly ref={output_ref}/>
         </div>
-        <div className="row">
+        <div className="row form-switch">
             <label htmlFor="decrypt">Decrypt: </label>
-            <input type="checkbox" id="decrypt" className="form-check-input" onChange={e => { decrypt = e.target.checked; on_input() }} />
+            <input type="checkbox" id="decrypt" className="form-check-input" onChange={e => { decrypt = e.target.checked; input_ref.current!.value = output_ref.current!.value; on_input() }} />
         </div>
         <br />
         <table>

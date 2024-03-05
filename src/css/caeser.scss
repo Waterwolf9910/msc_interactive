@@ -1,0 +1,14 @@
+@import "base.scss";
+@import "bootstrap/scss/forms";
+
+label + input {
+    margin-left: 15px;
+}
+
+textarea {
+    margin-bottom: .25rem;
+}
+
+.form-switch {
+    padding-left: 0;
+}

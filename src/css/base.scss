@@ -1,5 +1,9 @@
 @import "_bootstrap.scss";
 
+* {
+    font-family: monospace;
+}
+
 html, body,
 #root {
     height: 100%;
