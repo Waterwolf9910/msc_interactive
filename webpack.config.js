@@ -15,37 +15,48 @@ let html_template = fs.readFileSync(path.resolve(__dirname, "src/template.html")
 // Get a list on entries from our page list
 let entries = (() => {
     // Get all of our pages
-    let pages = fs.readdirSync(path.resolve(__dirname, 'src/js/pages'), {withFileTypes: true})
+    let pages = fs.readdirSync(path.resolve(__dirname, 'src/js/pages'), {withFileTypes: true, recursive: true})
+        .filter(v => v.isFile())
+        .map(v => ({...v, path: v.path.replace(/^\/([A-Z]:)/, '$1')}))
     /**@type {webpack.EntryObject} */
     let r = {}
     for (let page of pages) {
-        let name = page.name.replace(/\.(js|ts)x?$/, '')
-        r[name] = {
-            import: `./${path.relative(path.resolve(__dirname, "src"), page.path).replace(/\\/g, '/')}/${page.name}`,
-            filename: `${name}.js`,
+        // let file_dir = 
+        let file_path = ('./' + path
+            .relative(path.resolve(__dirname, "src"), page.path)
+            .replace(/\\/g, '/')
+            + '/' + page.name
+        )
+        .replace(/^\//, '')
+        r[file_path.replace('./js/pages/', '').replace(/\.(js|ts)x/, '')] = {
+            import: [path.resolve(__dirname, 'src/js/inject.tsx'), file_path],
+                filename: file_path.replace(/\.(js|ts)x/, '.js').replace(/^\.\//, '')
         }
     }
     return r
 })()
 
 // Create a list of html objects from our list of pages
-let html_list = Object.keys(entries).map(name => new html({
-    cache: true,
-    chunks: [ name ],
-    filename: `${name}.html`,
-    inject: "body",
-    favicon: path.resolve(__dirname, 'src/assets/favicon.ico'),
-    minify: isDev ? {
-        minifyCSS: true,
-        minifyJS: true,
-        removeComments: true
-    } : false,
-    templateContent: html_template
-        .replace("&{_title_}", 
-            (name == 'index' ? "Homepage" : `${name[0].toUpperCase()}${name.substring(1)}`)
-            .replace('_', ' ')
-        )
-}))
+let html_list = Object.keys(entries).map(name => {
+    let _name = name.split('/').at(name.endsWith('/index') ? -2 : -1)
+    return new html({
+        cache: true,
+        chunks: [ name ],
+        filename: `${name}.html`,
+        inject: "body",
+        favicon: path.resolve(__dirname, 'src/assets/favicon.ico'),
+        minify: isDev ? {
+            minifyCSS: true,
+            minifyJS: true,
+            removeComments: true
+        } : false,
+        templateContent: html_template
+            .replace("&{_title_}", 
+                (name == 'index' ? "Homepage" : `${_name[0].toUpperCase()}${_name.substring(1)}`)
+                .replace('_', ' ')
+            )
+    })
+})
 
 /**
  * @type {import('webpack-dev-server').WebpackConfiguration}
@@ -61,6 +72,7 @@ let config = {
         path: path.resolve(__dirname, 'build'),
         charset: true,
         clean: true,
+        publicPath: '/' // Ignore and create from script; set as slash for dev server
     },
     resolve: {
         extensions: [".js", ".jsx", ".ts", ".tsx"],
@@ -114,6 +126,7 @@ let config = {
             },
             {
                 test: /\.(sc|c|sa)ss$/i,
+                sideEffects: true,
                 use: [
                     {
                         loader: "style-loader",
@@ -170,6 +183,7 @@ let config = {
     },
     optimization: isDev ? {} : {
         minimize: true,
+        usedExports: "global",
         minimizer: [
             new terser({
                 parallel: true,

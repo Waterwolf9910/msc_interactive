@@ -1,5 +1,6 @@
 import dom from "react-dom/client"
 import { StrictMode } from "react"
+import Header from "./components/header"
 
 let root: dom.Root
 
@@ -10,12 +11,12 @@ if (module.hot) {
     })
     module.hot.accept()
 } else {
-    console.log(document.getElementById('root'))
     root = dom.createRoot(document.getElementById('root')!)
 }
 
 export const render = (Element: React.JSX.Element | (() => React.JSX.Element)) => {
     root.render(<StrictMode>
+        <Header />
         {/**TODO: Add Header for all pages*/}
         <main>
             {typeof Element == "function" ? <Element /> : Element}
@@ -23,6 +24,24 @@ export const render = (Element: React.JSX.Element | (() => React.JSX.Element)) =
     </StrictMode>)
 }
 
+export const page_list = require.context("./pages", true, /\.tsx$/, 'lazy').keys()
+    .map(v => {
+        let section = v.replace("./", '').replace(".tsx", '.html').replace("index.html", '')
+        let name = section.length < 1 ? "Homepage" : section[0].toUpperCase() + section.substring(1)
+            .replace('.html', '')
+            .replace(/\/$/, '')
+        return {
+            section,
+            name
+        }
+    })
+
+let temp = page_list[0]
+let i = page_list.findIndex(v => v.section == '')!
+page_list[0] = page_list[i]
+page_list[i] = temp
+
 export default {
-    render
+    render,
+    page_list
 }
