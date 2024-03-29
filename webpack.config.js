@@ -76,12 +76,15 @@ let config = {
     },
     resolve: {
         extensions: [".js", ".jsx", ".ts", ".tsx"],
-        plugins: [new tspaths]
+        plugins: [new tspaths],
         // alias: {
         //     assets: path.resolve(__dirname, "src/assets"),
         //     css: path.resolve(__dirname, "src/css"),
         //     js: path.resolve(__dirname, "src/js")
         // }
+        alias: {
+            'assert/strict': path.resolve(__dirname, 'src/js/polyfills/assert/strict')
+        }
     },
     devServer: {
         hot: true,
@@ -170,7 +173,7 @@ let config = {
                 ]
             },
             {
-                test: /\.(png|jpeg|jpg|gif|webp|ico)$/i,
+                test: /\.(png|jpeg|jpg|gif|webp|ico|bmp)$/i,
                 dependency: { not: [ 'url' ] },
                 type: 'asset/inline',
             },
@@ -187,7 +190,7 @@ let config = {
         minimizer: [
             new terser({
                 parallel: true,
-                extractComments: true,
+                extractComments: false,
                 terserOptions: {
                     sourceMap: false,
                     compress: {

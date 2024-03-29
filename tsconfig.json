@@ -9,7 +9,6 @@
         "forceConsistentCasingInFileNames": true,
         "jsx": "react-jsx",
         "resolvePackageJsonExports": true,
-        "resolvePackageJsonImports": true,
         "removeComments": true,
         "resolveJsonModule": true,
         "baseUrl": "./src"

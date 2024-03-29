@@ -35,6 +35,7 @@ const RAW_RUNTIME_STATE =
           ["autoprefixer", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:10.4.18"],\
           ["bootstrap", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.3.3"],\
           ["bootstrap-icons", "npm:1.11.3"],\
+          ["buffer", "npm:6.0.3"],\
           ["css-loader", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:6.10.0"],\
           ["eslint", "npm:8.57.0"],\
           ["html-inline-script-webpack-plugin", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:3.2.1"],\
@@ -55,7 +56,8 @@ const RAW_RUNTIME_STATE =
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"],\
           ["webpack", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.90.3"],\
           ["webpack-cli", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.1.4"],\
-          ["webpack-dev-server", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.0.2"]\
+          ["webpack-dev-server", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.0.2"],\
+          ["wolf_utils", "npm:1.4.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1311,6 +1313,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["base64-js", [\
+      ["npm:1.5.1", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/base64-js-npm-1.5.1-b2f7275641-10c0.zip/node_modules/base64-js/",\
+        "packageDependencies": [\
+          ["base64-js", "npm:1.5.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["batch", [\
       ["npm:0.6.1", {\
         "packageLocation": "../AppData/Local/Yarn/Berry/cache/batch-npm-0.6.1-70e2e81169-10c0.zip/node_modules/batch/",\
@@ -1448,6 +1459,17 @@ const RAW_RUNTIME_STATE =
           ["electron-to-chromium", "npm:1.4.690"],\
           ["node-releases", "npm:2.0.14"],\
           ["update-browserslist-db", "virtual:8126a959d46e6def6d7f2497c47970a23a94adac85f5be1df9be290c674503b9bcbe0dc057e2741ee222cc2a8a3b9f584b20c3a9eb5ce085704d99fc5d94514c#npm:1.0.13"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["buffer", [\
+      ["npm:6.0.3", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/buffer-npm-6.0.3-cd90dfedfe-10c0.zip/node_modules/buffer/",\
+        "packageDependencies": [\
+          ["buffer", "npm:6.0.3"],\
+          ["base64-js", "npm:1.5.1"],\
+          ["ieee754", "npm:1.2.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3307,6 +3329,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["ieee754", [\
+      ["npm:1.2.1", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/ieee754-npm-1.2.1-fb63b3caeb-10c0.zip/node_modules/ieee754/",\
+        "packageDependencies": [\
+          ["ieee754", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["ignore", [\
       ["npm:5.3.1", {\
         "packageLocation": "../AppData/Local/Yarn/Berry/cache/ignore-npm-5.3.1-f6947c5df7-10c0.zip/node_modules/ignore/",\
@@ -4162,6 +4193,7 @@ const RAW_RUNTIME_STATE =
           ["autoprefixer", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:10.4.18"],\
           ["bootstrap", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.3.3"],\
           ["bootstrap-icons", "npm:1.11.3"],\
+          ["buffer", "npm:6.0.3"],\
           ["css-loader", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:6.10.0"],\
           ["eslint", "npm:8.57.0"],\
           ["html-inline-script-webpack-plugin", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:3.2.1"],\
@@ -4182,7 +4214,8 @@ const RAW_RUNTIME_STATE =
           ["typescript", "patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"],\
           ["webpack", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.90.3"],\
           ["webpack-cli", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.1.4"],\
-          ["webpack-dev-server", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.0.2"]\
+          ["webpack-dev-server", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.0.2"],\
+          ["wolf_utils", "npm:1.4.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -6433,6 +6466,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../AppData/Local/Yarn/Berry/cache/wildcard-npm-2.0.1-7c6a3a3365-10c0.zip/node_modules/wildcard/",\
         "packageDependencies": [\
           ["wildcard", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["wolf_utils", [\
+      ["npm:1.4.1", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/wolf_utils-npm-1.4.1-afe07d5541-10c0.zip/node_modules/wolf_utils/",\
+        "packageDependencies": [\
+          ["wolf_utils", "npm:1.4.1"]\
         ],\
         "linkType": "HARD"\
       }]\

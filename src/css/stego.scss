@@ -1,0 +1,73 @@
+@import "./base.scss";
+@import "bootstrap/scss/popover";
+
+$border-color: rgb(160, 160, 160);
+
+@include color-mode(dark) {
+    .tooltip-custom {
+        background-color: adjust-color($color: $body-bg-dark, $alpha: 0.5);
+    }
+}
+
+@include color-mode(light) {
+    .tooltip-custom {
+        background-color: adjust-color($color: $body-bg, $alpha: 0.5);
+    }
+}
+
+.imgs {
+    justify-content: space-between;
+    width: 100%;
+    > * {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+td {
+    td + &, th[scope=row] + & {
+        border-width: 2px;
+    }
+    // tr[data-last=true] & {
+    //     border-bottom-color: $border-color !important;
+    // }
+    &[data-active=true], &:hover {
+        border-color: $border-color !important;
+    }
+}
+
+td, th {
+    border: 1px solid;
+    min-width: 25px;
+    max-width: 25px;
+    min-height: 25px;
+    max-height: 25px;
+    text-align: center;
+    font-size: 12px;
+}
+
+tbody {
+    white-space: nowrap;
+}
+
+tfoot {
+    th {
+        text-align: right;
+    }
+}
+
+div:has(> table) {
+    max-width: 95%;
+    max-height: 90vh;
+    overflow: auto;
+}
+
+table {
+    table-layout: fixed;
+    pointer-events: none;
+    border-collapse: separate;
+    border-spacing: 0;
+    * {
+        pointer-events: initial;
+    }
+}

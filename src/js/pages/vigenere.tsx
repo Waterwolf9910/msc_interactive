@@ -75,8 +75,8 @@ let page = () => {
             </thead>
             <tbody>
                 {Object.entries(alphabet).map(([char, i]) => <tr key={char}>
-                        <th scope="row">{char}</th>
-                        {table[i].map(v => <td key={v + i}>{v}</td>)}
+                    <th scope="row">{char}</th>
+                    {table[i].map(v => <td key={v + i}>{v}</td>)}
                 </tr>)}
             </tbody>
         </table>
