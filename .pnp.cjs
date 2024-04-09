@@ -57,7 +57,7 @@ const RAW_RUNTIME_STATE =
           ["webpack", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.90.3"],\
           ["webpack-cli", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.1.4"],\
           ["webpack-dev-server", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.0.2"],\
-          ["wolf_utils", "npm:1.4.1"]\
+          ["wolf_utils", "npm:1.4.2"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -4215,7 +4215,7 @@ const RAW_RUNTIME_STATE =
           ["webpack", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.90.3"],\
           ["webpack-cli", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.1.4"],\
           ["webpack-dev-server", "virtual:793e5851abffbeabf05d9765a82660a361c34c412b8fde431a77ffa4231eed490c74fd03df53dc7e9b5b9006cfff6d39d16b823d7f2423240026f6cddd69b3f8#npm:5.0.2"],\
-          ["wolf_utils", "npm:1.4.1"]\
+          ["wolf_utils", "npm:1.4.2"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -6471,10 +6471,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["wolf_utils", [\
-      ["npm:1.4.1", {\
-        "packageLocation": "../AppData/Local/Yarn/Berry/cache/wolf_utils-npm-1.4.1-afe07d5541-10c0.zip/node_modules/wolf_utils/",\
+      ["npm:1.4.2", {\
+        "packageLocation": "../AppData/Local/Yarn/Berry/cache/wolf_utils-npm-1.4.2-1caf346bfa-10c0.zip/node_modules/wolf_utils/",\
         "packageDependencies": [\
-          ["wolf_utils", "npm:1.4.1"]\
+          ["wolf_utils", "npm:1.4.2"]\
         ],\
         "linkType": "HARD"\
       }]\

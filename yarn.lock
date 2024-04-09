@@ -3478,7 +3478,7 @@ __metadata:
     webpack: "npm:^5.90.3"
     webpack-cli: "npm:^5.1.4"
     webpack-dev-server: "npm:^5.0.2"
-    wolf_utils: "npm:^1.4.1"
+    wolf_utils: "npm:^1.4.2"
   languageName: unknown
   linkType: soft
 
@@ -5356,10 +5356,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wolf_utils@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "wolf_utils@npm:1.4.1"
-  checksum: 10c0/dc6018d15fbcce078ce24db098884079f665b3059ad487a64090a0dac44afea6a63bd52d3b3e1c69248afaeb594880520a747f71426e236fb14a0dfe4bdcf5d7
+"wolf_utils@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "wolf_utils@npm:1.4.2"
+  checksum: 10c0/7465890e7304f71dcd2bcc4f695300b53ddd1a56851e99b58555bf4f7b86c4eaca6154588d5800ea7164e09081e288a5fcd1d0c8314337974e397528b6dc2810
   languageName: node
   linkType: hard
 

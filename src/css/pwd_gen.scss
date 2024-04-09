@@ -1,0 +1,25 @@
+@import "./base.scss";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/button-group";
+
+.button_group .btn {
+    flex-grow: 1;
+}
+
+.options {
+    width: 80%;
+}
+
+.options div {
+    margin-left: 10px;
+}
+
+$main_content_margin: 5px;
+
+main {
+    height: 100%;
+    div {
+        margin-top: $main_content_margin;
+        margin-bottom: $main_content_margin;
+    }
+}

@@ -24,12 +24,23 @@ export const render = (Element: React.JSX.Element | (() => React.JSX.Element)) =
     </StrictMode>)
 }
 
+export const upperFirst = (str: string) => {
+    let val = str.split(' ')
+    for (let i = 0; i < val.length; ++i) {
+        val[i] = val[i][0].toUpperCase() + val[i].substring(1)
+    }
+
+    return val.join(' ')
+}
+
 export const page_list = require.context("./pages", true, /\.tsx$/, 'lazy').keys()
     .map(v => {
         let section = v.replace("./", '').replace(".tsx", '.html').replace("index.html", '')
-        let name = section.length < 1 ? "Homepage" : section[0].toUpperCase() + section.substring(1)
+        let name = section.length < 1 ? "Homepage" : upperFirst(section[0].toUpperCase() + section.substring(1)
             .replace('.html', '')
             .replace(/\/$/, '')
+            .replace(/_|-/g, ' ')
+        )
         return {
             section,
             name

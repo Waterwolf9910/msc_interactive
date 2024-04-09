@@ -6,6 +6,7 @@
         "sourceMap": true,
         "target": "ES2022", // ~90% of browser (4/03/24)
         "rootDir": "./src/js",
+        // "typeRoots": ["./src/types", "./node_modules/@types"],
         "forceConsistentCasingInFileNames": true,
         "jsx": "react-jsx",
         "resolvePackageJsonExports": true,
@@ -13,7 +14,7 @@
         "resolveJsonModule": true,
         "baseUrl": "./src"
     },
-    "include": ["./src/js"],
+    "include": ["./src/js", "src/types/types.d.ts", "src/types/global.d.ts"],
     "exclude": [
         "node_modules"
     ]

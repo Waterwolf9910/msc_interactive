@@ -1,19 +1,22 @@
 @import "./base.scss";
+@import "bootstrap/scss/tooltip";
 @import "bootstrap/scss/popover";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/button-group";
 
 $border-color: rgb(160, 160, 160);
 
-@include color-mode(dark) {
-    .tooltip-custom {
-        background-color: adjust-color($color: $body-bg-dark, $alpha: 0.5);
-    }
-}
+// @include color-mode(dark) {
+//     .tooltip-custom {
+//         background-color: adjust-color($color: $body-bg-dark, $alpha: 0.5);
+//     }
+// }
 
-@include color-mode(light) {
-    .tooltip-custom {
-        background-color: adjust-color($color: $body-bg, $alpha: 0.5);
-    }
-}
+// @include color-mode(light) {
+//     .tooltip-custom {
+//         background-color: adjust-color($color: $body-bg, $alpha: 0.5);
+//     }
+// }
 
 .imgs {
     justify-content: space-between;
@@ -22,6 +25,14 @@ $border-color: rgb(160, 160, 160);
         margin-left: 5px;
         margin-right: 5px;
     }
+}
+
+.row:has(input) {
+    width: 80%;
+}
+
+.button-group input[type="button"] {
+    flex-grow: 1
 }
 
 td {
