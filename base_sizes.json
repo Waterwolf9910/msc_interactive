@@ -1,0 +1,38 @@
+{
+    "drone_asm": {
+        "width": 625,
+        "height": 560
+    },
+    "is_drone": {
+        "width": 825,
+        "height": 440
+    },
+    "password_gen": {
+        "width": 750,
+        "height": 160
+    },
+    "sound": {
+        "width": 750,
+        "height": 150
+    },
+    "caeser": {
+        "width": 520,
+        "height": 350
+    },
+    "stego": {
+        "width": 1800,
+        "height": 1320
+    },
+    "sounds": {
+        "width": 930,
+        "height": 280
+    },
+    "engineering_process": {
+        "width": 955,
+        "height": 1035
+    },
+    "airplane_parts": {
+        "width": 950,
+        "height": 1150
+    }
+}

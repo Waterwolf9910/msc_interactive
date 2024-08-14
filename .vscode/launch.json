@@ -8,8 +8,15 @@
             "type": "msedge",
             "request": "launch",
             "name": "Launch Debug Browser",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/src"
+            "url": "http://localhost:3000/",
+            "webRoot": "${workspaceFolder}/src",
+            "skipFiles": [
+                "chrome-extension://**",
+                "**/webpack/**",
+                "**/Yarn/**",
+                "**/.yarn/**",
+                "<node_internals>/**",
+            ]
         }
     ]
 }

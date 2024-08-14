@@ -1,8 +1,7 @@
-import "css/pwd_gen.scss"
+import "css/password_gen.scss"
 import utils from "../utils"
 import { useRef, useState } from "react"
 import _random from "wolf_utils/random.js"
-import Description from "js/components/pwd_gen_desc"
 let random = _random()
 
 let page = () => {
@@ -43,7 +42,7 @@ let page = () => {
                 <input type="button" aria-labelledby="number_label" value={numbers ? "Enabled" : "Disabled"} className={`btn btn-${numbers ? 'success' : 'danger'}`} onClick={() => set_numbers(!numbers)} />
             </div>
             <div className="row btn-group">
-                <span id="char_label" className="input-group-text">Special Characters</span>
+                <span id="char_label" className="input-group-text">Spec Chars</span>
                 <input type="button" aria-labelledby="char_label" value={spec_chars ? "Enabled" : "Disabled"} className={`btn btn-${spec_chars ? 'success' : 'danger'}`} onClick={() => set_spec_chars(!spec_chars)}/>
             </div>
             <div className="row input-group">
@@ -51,7 +50,11 @@ let page = () => {
                 <input aria-labelledby="length_label" type="number" defaultValue="50" min={1} className="form-control" ref={lengthRef}/>
             </div>
         </div>
-        <Description />
+        <div>
+            <p>Set options above then click green generate button</p>
+        </div>
+        <p></p>
+        {/* <Description /> */}
     </div>
 }
 

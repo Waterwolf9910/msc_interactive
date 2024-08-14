@@ -12,4 +12,5 @@
 !.yarn/cache
 # .pnp.*
 build/
+publish/
 notes.txt

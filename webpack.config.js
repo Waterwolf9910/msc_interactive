@@ -10,13 +10,13 @@ let rrwp = require("@pmmmwh/react-refresh-webpack-plugin") // Hot reload for rea
 let rrt = require("react-refresh-typescript") // Typescript support for the above
 
 let isDev = process.env.NODE_ENV == "development"
-let html_template = fs.readFileSync(path.resolve(__dirname, "src/template.html"), {encoding: 'utf-8'})
+let html_template = fs.readFileSync(path.resolve(__dirname, `src/${isDev ? 'dev_' : ''}template.html`), {encoding: 'utf-8'})
 
 // Get a list on entries from our page list
 let entries = (() => {
     // Get all of our pages
     let pages = fs.readdirSync(path.resolve(__dirname, 'src/js/pages'), {withFileTypes: true, recursive: true})
-        .filter(v => v.isFile())
+        .filter(v => v.isFile() && v.name.endsWith(".tsx"))
         .map(v => ({...v, path: v.path.replace(/^\/([A-Z]:)/, '$1')}))
     /**@type {webpack.EntryObject} */
     let r = {}
@@ -36,6 +36,20 @@ let entries = (() => {
     return r
 })()
 
+/**
+ * 
+ * @param {string} str 
+ * @returns 
+ */
+const upperFirst = (str) => {
+    let val = str.split('_')
+    for (let i = 0; i < val.length; ++i) {
+        val[ i ] = val[ i ][ 0 ].toUpperCase() + val[ i ].substring(1)
+    }
+
+    return val.join(' ')
+}
+
 // Create a list of html objects from our list of pages
 let html_list = Object.keys(entries).map(name => {
     let _name = name.split('/').at(name.endsWith('/index') ? -2 : -1)
@@ -52,7 +66,7 @@ let html_list = Object.keys(entries).map(name => {
         } : false,
         templateContent: html_template
             .replace("&{_title_}", 
-                (name == 'index' ? "Homepage" : `${_name[0].toUpperCase()}${_name.substring(1)}`)
+                (name == 'index' ? "Homepage" : `${upperFirst(_name)}`)
                 .replace('_', ' ')
             )
     })
@@ -63,7 +77,7 @@ let html_list = Object.keys(entries).map(name => {
  */
 let config = {
     entry: entries,
-    target: ['web'],
+    target: ['web', 'es2022'],
     stats: 'normal',
     context: path.resolve(__dirname, "src"),
     mode: isDev ? "development" : "production",
@@ -173,12 +187,12 @@ let config = {
                 ]
             },
             {
-                test: /\.(png|jpeg|jpg|gif|webp|ico|bmp)$/i,
+                test: /\.(png|jpeg|jpg|gif|webp|ico|bmp|svg)$/i,
                 dependency: { not: [ 'url' ] },
                 type: 'asset/inline',
             },
             {
-                test: /\.txt$/,
+                test: /\.(txt|music)$/,
                 dependency: { not: [ 'url' ] },
                 type: 'asset/source'
             }

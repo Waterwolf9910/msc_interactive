@@ -1,6 +1,5 @@
 import "css/stego.scss"
-import test_img_src from "assets/black_blue.bmp"
-import Description from "js/components/stego_desc"
+import base_img_src from "assets/black_blue.bmp"
 import utils from "../utils"
 import { useEffect, useRef, useState } from "react"
 import { Popover, Tooltip } from "bootstrap"
@@ -44,11 +43,10 @@ let map: { [key: number]: { limit: number, mask: number, length_multi: number }}
     }
 }
 
-let test_img = await (await (await fetch(test_img_src)).blob()).arrayBuffer()
-//@ts-ignore
-window.img = test_img
+let base_img = await (await (await fetch(base_img_src)).blob()).arrayBuffer()
+
 let page = () => {
-    let [img_data, _set_img_data] = useState<parsed_bmp>(parser(test_img))
+    let [img_data, _set_img_data] = useState<parsed_bmp>(parser(base_img))
     let [new_pixel, _set_new_pixel] = useState<parsed_bmp['pixel_data']>({...img_data.pixel_data})
     let [allowed_bpp, _set_bpp] = useState(7)
     let [decode, _set_decode] = useState(false)
@@ -60,7 +58,7 @@ let page = () => {
     let preview_img: React.JSX.Element | '' = ''
     let encoded_magic = "SI" // (S)tego (I)mage
 
-    let clearTooltips = () => {
+    let clearTooltips = () => { // Clear all tooltip objects
         for (let key in tooltip_holder) {
             tooltip_holder[key].dispose()
         }
@@ -122,6 +120,7 @@ let page = () => {
             return
         }
 
+        // Limit Height and Width to 32x32
         if (img.header.height > 32 || img.header.width > 32) {
             show_error(`Image Size Must Be Less Then 32x32\nReceived ${img.header.width}x${img.header.height}`)
             return
@@ -135,6 +134,7 @@ let page = () => {
         let val = event.currentTarget.dataset.active
         event.currentTarget.dataset.active = val == 'true' ? 'false' : 'true'
         event.currentTarget.dataset.tooltip_open = 'true'
+        // Create a border around the selected cell
         //@ts-ignore
         Array(...document.querySelectorAll<'td'>('td[data-tooltip_open=true]'))
             .filter(v => v.id != event.currentTarget.id)
@@ -169,11 +169,14 @@ let page = () => {
             write(new_val, bits_left - allowed_bpp)
         }
 
+        // Add bits per pixels first, then magic
         buf[offset + 2] = (buf[offset + 2] & ~7) | allowed_bpp
         offset += 3
         for (let val of encoded_magic) {
             write(val.charCodeAt(0))
         }
+
+        // Write how long the message should be
         let length = (message.length) * 3 * map[allowed_bpp].length_multi
         write(length & 0b1111111) // Length Bottom 7
         write(length >> 7) // Length Top 7
@@ -181,7 +184,7 @@ let page = () => {
             write(val.charCodeAt(0))
         }
 
-        let new_img = parser(buf)
+        let new_img = parser(buf) // Check our message
 
         let decoded = decode_message(new_img)
         if (decoded != message) {
@@ -260,6 +263,7 @@ let page = () => {
         }
     }, [allowed_bpp, decode, img_data])
 
+    // Create the cell(s) to display a zoomed version of image
     if (img_data) {
         let x_index: number[] = []
         let y_index: number[] = []
@@ -293,7 +297,7 @@ let page = () => {
                 <tr><th colSpan={img_data.header.height+1}>Pixel Count: {img_data.length}</th></tr>
             </tfoot>
         </table>
-        preview_img = decode ? '' : <table id='preview'>
+        preview_img = decode ? <p>No Preview Available</p> : <table id='preview'>
             <thead>
                 <tr>
                     <th scope="col"> </th>
@@ -340,6 +344,9 @@ let page = () => {
     }
     
     return <div className="col center_items">
+        <div>
+            <p>Here you will use steganography to encode a secret message into a image</p>
+        </div>
         <div id="images" className="row imgs">
             {image}
             {preview_img}
@@ -369,7 +376,14 @@ let page = () => {
                 a.click()
             }} disabled={decode} />
         </div>
-        <Description />
+        <div className="no_margin">
+            <p>Use the default image or choose a bitmap image that is a maximum size of 32x32 and a color depth of 24</p>
+            <p>Enter your message and watch it be encoded into the preview (right side)</p>
+            <p>Click on the preview to see the color change in the image</p>
+            <p>Scroll allowed bits to watch the changes get harder and harder to see</p>
+            <p>In decode mode, you can upload a bitmap image that was previously download to read the message</p>
+        </div>
+        {/* <Description /> */}
     </div>
 }
 

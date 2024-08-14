@@ -1,0 +1,32 @@
+@import "base.scss";
+@import "bootstrap/scss/tooltip";
+
+.drone_table {
+    width: 100%;
+    img {
+        width: 256px;
+        height: 192px;
+    }
+    div {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            color: orange;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            // left: 50%;
+            background: radial-gradient(var(--bs-gray-200), var(--bs-gray-500));
+            width: 160px;
+        }
+    }
+    * {
+        text-align: center;
+    }
+}
+
+.tooltip-inner {
+    max-width: 512px;
+}

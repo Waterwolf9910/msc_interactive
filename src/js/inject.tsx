@@ -13,4 +13,8 @@ import utils from "./utils"
     }
 })()
 
+if (module.hot) {
+    module.hot.accept()
+}
+
 window.Buffer = Buffer

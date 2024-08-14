@@ -1,0 +1,23 @@
+@import "../../../css/base.scss";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/button-group";
+
+.form-switch,
+.form-check {
+    padding-left: 0;
+}
+
+.entry {
+    @extend .row, .input-group, .form-switch, .form-check
+}
+
+.card {
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+}

@@ -6,9 +6,11 @@
         "@types/bootstrap": "^5.2.10",
         "@types/react": "^18.2.61",
         "@types/react-dom": "^18.2.19",
+        "@types/three": "^0.166.0",
         "@types/webpack-env": "^1.18.4",
         "autoprefixer": "^10.4.18",
         "css-loader": "^6.10.0",
+        "csstype": "^3.1.3",
         "eslint": "^8.57.0",
         "html-inline-script-webpack-plugin": "^3.2.1",
         "html-webpack-plugin": "^5.6.0",
@@ -26,15 +28,28 @@
         "typescript": "^5.3.3",
         "webpack": "^5.90.3",
         "webpack-cli": "^5.1.4",
-        "webpack-dev-server": "^5.0.2"
+        "webpack-dev-server": "^5.0.2",
+        "yargs": "^17.7.2"
     },
     "dependencies": {
         "@popperjs/core": "^2.11.8",
+        "@react-three/drei": "^9.108.3",
+        "@react-three/fiber": "^8.16.8",
+        "@react-three/gltfjsx": "^4.3.4",
         "bootstrap": "^5.3.3",
         "bootstrap-icons": "^1.11.3",
         "buffer": "^6.0.3",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "wolf_utils": "^1.4.2"
+        "highlight.js": "^11.9.0",
+        "react": "^18.3.1",
+        "react-dnd": "^16.0.1",
+        "react-dnd-html5-backend": "^16.0.1",
+        "react-dnd-touch-backend": "^16.0.1",
+        "react-dom": "^18.3.1",
+        "three": "^0.166.1",
+        "three-stdlib": "^2.30.4",
+        "wolf_utils": "^1.4.4"
+    },
+    "scripts": {
+        "build": "node ./build.js"
     }
 }

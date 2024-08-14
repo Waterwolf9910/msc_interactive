@@ -18,8 +18,19 @@ $border-color: rgb(160, 160, 160);
 //     }
 // }
 
+.no_margin {
+    width: 600px;
+    p {
+        &:first-child {
+            margin-top: revert;
+        }
+        margin: 0;
+    }
+}
+
 .imgs {
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
     width: 100%;
     > * {
         margin-left: 5px;

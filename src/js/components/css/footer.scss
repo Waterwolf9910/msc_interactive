@@ -1,0 +1,23 @@
+.footer {
+    z-index: 1000;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    // top: 85%;
+    // margin-top: -15px;
+    // padding-bottom: 5px;
+    // padding-top: 5px;
+    background-color: var(--bs-body-bg);
+    border-top-style: solid;
+    border-width: 2px;
+    height: 45px;
+    overflow-y: auto;
+    // + * {
+    //     margin-top: 2.75rem !important;
+    // }
+}
+
+.navbar-brand {
+    margin-right: 1.15rem !important;
+}
+

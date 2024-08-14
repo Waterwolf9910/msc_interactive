@@ -1,0 +1,16 @@
+<iframe style="display: none;" id="frame_{name}" >
+    {html}
+</iframe>
+<script>
+    (() => {
+        let frame_{name} = document.getElementById("frame_{name}")
+        let srcdoc_{name} = frame_{name}.innerHTML
+        frame_{name}.innerHTML = ''
+        frame_{name}.style.cssText = "height: {height}px !important; width: {width}px !important;"
+        // frame_{name}.height = {height}
+        // frame_{name}.width = {width}
+        frame_{name}.srcdoc = srcdoc_{name}
+        frame_{name}.frameBorder = 'none'
+        frame_{name}.style.display = "block"
+    })()
+</script>

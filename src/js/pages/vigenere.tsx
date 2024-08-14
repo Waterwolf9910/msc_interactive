@@ -1,7 +1,6 @@
 import "css/vigenere.scss"
 import { useRef } from "react"
 import utils from "js/utils"
-import Description from "js/components/vigenere_desc"
 
 // Generate our table and lookup
 const alphabet = Object.fromEntries(Array(26).fill(0).map((_, i) => [String.fromCharCode(0x61 + i), i]))
@@ -80,7 +79,13 @@ let page = () => {
                 </tr>)}
             </tbody>
         </table>
-        <Description />
+        <div>
+            <p>Enter a key then add an input</p>
+            <p>Enter text into the input box and get an output</p>
+            <p>Decrypt will flip the values and decrypt input</p>
+            <p>Keystream is the part of the key used to encrypt the input</p>
+        </div>
+        {/* <Description /> */}
     </div>
 }
 

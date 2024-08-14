@@ -1,0 +1,65 @@
+@import "./base.scss";
+
+.container {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.item_container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 800px;
+    text-align: center;
+
+    > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        flex-wrap: wrap;
+        div {
+            margin: 5px;
+            height: 150px;
+            width: 125px;
+            border: solid 2px;
+        }
+    }
+
+    div {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+}
+
+.puzzle {
+    display: flex;
+    position: absolute;
+
+    > div {
+        display: block;
+        position: absolute;
+        border-style: dashed;
+        // border-radius: 90px;
+        border-width: 4px;
+        
+        p {
+            word-break: normal;
+            text-align: center;
+            margin: 0;
+        }
+
+        div {
+            position: absolute;
+            display: flex;
+            height: -webkit-fill-available;
+            height: -moz-available;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

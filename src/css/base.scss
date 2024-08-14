@@ -15,16 +15,14 @@ html, body,
     // @extend .col, .center_items
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 main {
     overflow: auto;
-}
-
-p {
-    margin-bottom: .15rem;
-}
-
-input[type="text"] {
-    margin-bottom: .25rem;
 }
 
 .row {
@@ -44,4 +42,15 @@ input[type="text"] {
 
 .form-switch .form-check-input {
     margin-left: 10px !important;
+}
+
+.btn.form-control {
+    color: var(--bs-btn-color);
+    background-color: var(--bs-btn-bg);
+    border-color: var(--bs-btn-border-color);
+    &:focus,&:hover {
+        color: var(--bs-btn-hover-color);
+        background-color: var(--bs-btn-hover-bg);
+        border-color: var(--bs-btn-hover-border-color);
+    }
 }

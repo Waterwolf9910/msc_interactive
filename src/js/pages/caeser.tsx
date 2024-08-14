@@ -1,9 +1,10 @@
 import "css/caeser.scss"
-import Description from "js/components/caeser_desc"
 import utils from "../utils"
 import { useRef } from "react"
 
+// Our original alphabet
 const alphabet = Array(26).fill(0).map((_, i) => String.fromCharCode(0x61 + i))
+// letter index pair of each letter
 const a_loopup = Object.fromEntries(alphabet.map((v, i) => [v, i]))
 
 let page = () => {
@@ -36,6 +37,9 @@ let page = () => {
     }
 
     return <div className="col center_items">
+        <div>
+            <p>The ceaser cipher is an method used to encrypt text</p>
+        </div>
         <div className="row center_items">
             <label htmlFor="shift">Shift: </label>
             <input defaultValue='11' type="number" min={1} max={25} minLength={1} id='shift' onChange={(e) => {e.target.valueAsNumber = e.target.value.length < 1 ? 1 : e.target.valueAsNumber; shift = e.target.valueAsNumber; on_input();}} />
@@ -52,7 +56,10 @@ let page = () => {
             <label htmlFor="decrypt">Decrypt: </label>
             <input type="checkbox" id="decrypt" className="form-check-input" onChange={e => { decrypt = e.target.checked; input_ref.current!.value = output_ref.current!.value; on_input() }} />
         </div>
-        <Description />
+        <p>Set shift value in Shift.</p>
+        <p>Enter text into the input box and get an output</p>
+        <p>Decrypt will flip the values and decrypt input</p>
+        {/* <Description /> */}
     </div>
 }
 

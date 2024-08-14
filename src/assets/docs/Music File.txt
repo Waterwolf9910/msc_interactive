@@ -1,0 +1,23 @@
+(Replace Brackets)
+Version 1.1 Format: Same as 1.0
+Notes:
+    - See Version 1.0
+    - | is ignored in note lines
+
+Version 1.0 Format: 
+1st: Version: [VersionNumber]
+2st Line: BPM: [BPM]
+3rd Line - Second to Last Line (Note Lines): [StartAt][WaveType]: [NoteGrouping], [NoteGrouping]...
+Last Line (opt): Name: 
+
+Inputs
+VersionNumber: 1.0 or 1.1
+BPM: Song beats per minute
+StartAt: What beat to start this line on
+WaveType: One of ['sine', 'triangle', 'square', 'sawtooth']
+Note: One of [A, A#, Ab, B, Bb, C, C#, D, D#, Db, d, E, Eb, F, F#, G, G#, Gb, R] R=Rest (Case insensitive)
+NoteType: One of [W, H, Q, E, S, T] - W=Whole, H=Half, etc... T=Thirtysecond - D before notetype denotes if dotted
+NoteGrouping: [Note][Octave].[NoteType] - Octave not needed for rests
+Notes:
+    # in the beginning of the line is a comment
+    Current allowed octaves only go from (C1-C8)
